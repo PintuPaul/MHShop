@@ -6,6 +6,13 @@ public class Item {
     private int price;
     private String image;
 
+    public Item(String name, String description, int price, String image) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.image = image;
+    }
+
     public String getName() {
         return name;
     }
