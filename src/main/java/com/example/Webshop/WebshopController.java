@@ -59,5 +59,8 @@ public class WebshopController {
         return "redirect:/productList";
     }
 
-
+    @GetMapping("/orderConfirmation")
+    String orderConfirmation(){
+        return "orderConfirmation";
+    }
 }

@@ -246,7 +246,8 @@
                     </div>
                 </div>
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+
+                <a class="btn btn-primary btn-lg btn-block" href="orderConfirmation" type="submit" th:text="${'Place your order (' + session.sum + ' SEK )'}"></a>
             </form>
         </div>
     </div>
