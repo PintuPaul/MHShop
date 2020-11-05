@@ -9,4 +9,8 @@ public class WebshopController {
     String welcome(){
         return "landingPage";
     }
+    @GetMapping("/productList")
+    String productList(){
+        return "productList";
+    }
 }
