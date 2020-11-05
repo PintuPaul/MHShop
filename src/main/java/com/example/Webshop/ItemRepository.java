@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Service
 public class ItemRepository {
     private List<Item> items;
@@ -30,8 +31,6 @@ public class ItemRepository {
     public List<Item> getItems() {
         return items;
     }
-
-
 
 
 }

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,6 +36,7 @@
           font-size: 3.5rem;
         }
       }
+
     </style>
     <!-- Custom styles for this template -->
     <link href="form-validation.css" rel="stylesheet">
@@ -53,22 +55,23 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4 order-md-2 mb-4" >
+        <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted">Your cart</span>
                 <span class="badge badge-secondary badge-pill" th:text="${session.cart.size()}"></span>
             </h4>
-            <ul class="list-group mb-3" >
-                <li class="list-group-item d-flex justify-content-between lh-condensed" th:each=" product : ${session?.cart}">
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-condensed"
+                    th:each=" product : ${session?.cart}">
                     <div>
-                        <h6 class="my-0" th:text="${product.name}"> </h6>
+                        <h6 class="my-0" th:text="${product.name}"></h6>
                     </div>
                     <span class="text-muted" th:text="${product.price} +' SEK'"></span>
                 </li>
 
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Total (SEK)</span>
-                    <strong th:text= "${session.sum}"></strong>
+                    <strong th:text="${session.sum}"></strong>
                 </li>
             </ul>
 
@@ -101,18 +104,18 @@
                     </div>
                 </div>
 
-<!--                <div class="mb-3">
-                    <label for="username">Username</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">@</span>
-                        </div>
-                        <input type="text" class="form-control" id="username" placeholder="Username" required>
-                        <div class="invalid-feedback" style="width: 100%;">
-                            Your username is required.
-                        </div>
-                    </div>
-                </div>-->
+                <!--                <div class="mb-3">
+                                    <label for="username">Username</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">@</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="username" placeholder="Username" required>
+                                        <div class="invalid-feedback" style="width: 100%;">
+                                            Your username is required.
+                                        </div>
+                                    </div>
+                                </div>-->
 
                 <div class="mb-3">
                     <label for="email">Email <span class="text-muted">(Optional)</span></label>
@@ -130,10 +133,10 @@
                     </div>
                 </div>
 
-               <!-- <div class="mb-3">
-                    <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-                    <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-                </div>-->
+                <!-- <div class="mb-3">
+                     <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+                     <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                 </div>-->
 
                 <div class="row">
                     <div class="col-md-5 mb-3">
@@ -171,7 +174,8 @@
                 <hr class="mb-4">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="same-address">
-                    <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
+                    <label class="custom-control-label" for="same-address">Shipping address is the same as my billing
+                        address</label>
                 </div>
                 <!--<div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="save-info">
@@ -183,15 +187,18 @@
 
                 <div class="d-block my-3">
                     <div class="custom-control custom-radio">
-                        <input id="homeDelivery" name="deliveryMethod" type="radio" class="custom-control-input" checked required>
+                        <input id="homeDelivery" name="deliveryMethod" type="radio" class="custom-control-input" checked
+                               required>
                         <label class="custom-control-label" for="homeDelivery">Home Delivery</label>
                     </div>
                     <div class="custom-control custom-radio">
-                        <input id="pickUpPoint" name="deliveryMethod" type="radio" class="custom-control-input" required>
+                        <input id="pickUpPoint" name="deliveryMethod" type="radio" class="custom-control-input"
+                               required>
                         <label class="custom-control-label" for="pickUpPoint">Pick Up Point</label>
                     </div>
                     <div class="custom-control custom-radio">
-                        <input id="clickCollect" name="deliveryMethod" type="radio" class="custom-control-input" required>
+                        <input id="clickCollect" name="deliveryMethod" type="radio" class="custom-control-input"
+                               required>
                         <label class="custom-control-label" for="clickCollect">Click & Collect</label>
                     </div>
                 </div>
@@ -200,7 +207,8 @@
 
                 <div class="d-block my-3">
                     <div class="custom-control custom-radio">
-                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked
+                               required>
                         <label class="custom-control-label" for="credit">Credit card</label>
                     </div>
                     <div class="custom-control custom-radio">
@@ -247,7 +255,8 @@
                 </div>
                 <hr class="mb-4">
 
-                <a class="btn btn-primary btn-lg btn-block" href="orderConfirmation" type="submit" th:text="${'Place your order (' + session.sum + ' SEK )'}"></a>
+                <a class="btn btn-primary btn-lg btn-block" href="orderConfirmation" type="submit"
+                   th:text="${'Place your order (' + session.sum + ' SEK )'}"></a>
             </form>
         </div>
     </div>
@@ -279,8 +288,12 @@
 <!-- Optional JavaScript; choose one of the two! -->
 
 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
 
 <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

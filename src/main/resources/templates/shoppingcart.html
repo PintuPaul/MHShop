@@ -14,6 +14,7 @@
 <body>
 <nav class="site-header sticky-top py-1">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
+
         <a class="py-2" href="landingPage" aria-label="Product">
             <svg width="40" height="40"
                  xmlns="http://www.w3.org/2000/svg">
@@ -22,31 +23,38 @@
         </a>
         <a class="py-2 d-none d-md-inline-block" href="productList">Products</a>
         <a class="py-2 d-none d-md-inline-block" href="shoppingCart">Shopping Cart</a>
+
+
     </div>
 </nav>
 <!-- Optional JavaScript; choose one of the two! -->
 <div class="container">
     <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="MHLogo.png" alt="" width="82" height="72">
+        <a class="d-block mx-auto mb-4" href="landingPage" aria-label="landingPage">
+            <svg width="82" height="72"
+                 xmlns="http://www.w3.org/2000/svg">
+                <image href="MHLogo.png" width="82" height="72"/>
+            </svg>
+        </a>
         <h2>Shopping cart</h2>
         <p class="lead" th:if="${session?.cart}">These are the items you have selected</p>
         <p class="lead" th:if="${session.cart == null}">You have not added any items to cart</p>
     </div>
-    <div class="row" >
+    <div class="row">
         <div class="col-sm" th:each=" product : ${session?.cart}">
-<div class="card" style="width: 18rem;" >
-    <img th:src="${product.image}" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title" th:text="${product.name}"></h5>
-        <p class="card-text" th:text="${product.description}"></p>
-        <p class="card-text" th:text="${product.price+' Kr'}"></p>
-        <!--     <a href="shoppingCart" class="btn btn-primary" >Add to Cart</a>-->
-    </div>
-</div>
+            <div class="card" style="width: 18rem;">
+                <img th:src="${product.image}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${product.name}"></h5>
+                    <p class="card-text" th:text="${product.description}"></p>
+                    <p class="card-text" th:text="${product.price+' Kr'}"></p>
+                    <!--     <a href="shoppingCart" class="btn btn-primary" >Add to Cart</a>-->
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<a type="button" href="checkout" class="btn btn-primary btn-lg" th:if="${session?.cart}" >Proceed to checkout</a>
+<a type="button" href="checkout" class="btn btn-primary btn-lg" th:if="${session?.cart}">Proceed to checkout</a>
 
 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
