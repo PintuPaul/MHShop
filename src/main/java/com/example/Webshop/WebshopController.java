@@ -50,10 +50,14 @@ public class WebshopController {
     public String addToCart(@ModelAttribute Item item, HttpSession session) {
         List<Item> cart = (List)session.getAttribute("cart");
         if (cart == null) {
+            session.setAttribute("sum",0);
             cart = new ArrayList<>();
             session.setAttribute("cart", cart);
         }
+        session.setAttribute("sum",(Integer)session.getAttribute("sum")+item.getPrice());
         cart.add(item);
         return "redirect:/productList";
     }
+
+
 }

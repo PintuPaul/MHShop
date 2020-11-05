@@ -26,6 +26,11 @@
 </nav>
 <!-- Optional JavaScript; choose one of the two! -->
 <div class="container">
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="MHLogo.png" alt="" width="82" height="72">
+        <h2>Shopping cart</h2>
+        <p class="lead">These are the items you have selected</p>
+    </div>
     <div class="row" >
         <div class="col-sm" th:each=" product : ${session?.cart}">
 <div class="card" style="width: 18rem;" >
@@ -40,6 +45,7 @@
         </div>
     </div>
 </div>
+<a type="button" href="checkout" class="btn btn-primary btn-lg" >Proceed to checkout</a>
 
 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
