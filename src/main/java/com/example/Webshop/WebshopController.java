@@ -4,8 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -26,7 +30,9 @@ public class WebshopController {
     }
 
     @GetMapping("/shoppingCart")
-    String shoppingCart(Model model){
+    String shoppingCart(Model model, HttpSession session){
+/*        List<Item> products =  (List)session.getAttribute("cart");
+        model.addAttribute("product", products);*/
         return "shoppingCart";
     }
 
@@ -38,5 +44,16 @@ public class WebshopController {
     @GetMapping("/checkout")
     String checkout(){
         return "checkout";
+    }
+
+    @PostMapping("/productList")
+    public String addToCart(@ModelAttribute Item item, HttpSession session) {
+        List<Item> cart = (List)session.getAttribute("cart");
+        if (cart == null) {
+            cart = new ArrayList<>();
+            session.setAttribute("cart", cart);
+        }
+        cart.add(item);
+        return "redirect:/productList";
     }
 }
