@@ -1,8 +1,10 @@
 package com.example.Webshop;
 
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
-
+@Service
 public class ItemRepository {
     private List<Item> items;
 
