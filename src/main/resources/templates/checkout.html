@@ -42,7 +42,12 @@
 <body class="bg-light">
 <div class="container">
     <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="MHLogo.png" alt="" width="82" height="72">
+        <a class="d-block mx-auto mb-4" href="landingPage" aria-label="landingPage">
+            <svg width="82" height="72"
+                 xmlns="http://www.w3.org/2000/svg">
+                <image href="MHLogo.png" width="82" height="72"/>
+            </svg>
+        </a>
         <h2>Checkout</h2>
         <p class="lead">Enter your personal information below</p>
     </div>
@@ -174,6 +179,23 @@
                 </div>-->
                 <hr class="mb-4">
 
+                <h4 class="mb-3">Delivery Options</h4>
+
+                <div class="d-block my-3">
+                    <div class="custom-control custom-radio">
+                        <input id="homeDelivery" name="deliveryMethod" type="radio" class="custom-control-input" checked required>
+                        <label class="custom-control-label" for="homeDelivery">Home Delivery</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input id="pickUpPoint" name="deliveryMethod" type="radio" class="custom-control-input" required>
+                        <label class="custom-control-label" for="pickUpPoint">Pick Up Point</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input id="clickCollect" name="deliveryMethod" type="radio" class="custom-control-input" required>
+                        <label class="custom-control-label" for="clickCollect">Click & Collect</label>
+                    </div>
+                </div>
+
                 <h4 class="mb-3">Payment</h4>
 
                 <div class="d-block my-3">
@@ -229,18 +251,29 @@
         </div>
     </div>
 
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2017-2020 Company Name</p>
-        <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
+    <footer class="container py-5">
+        <div class="row">
+            <div class="col-12 col-md">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                     stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img"
+                     viewBox="0 0 24 24" focusable="false"><title>Product</title>
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
+                </svg>
+                <small class="d-block mb-3 text-muted">&copy; 2020</small>
+            </div>
+            <div class="col-6 col-md">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="#">Team</a></li>
+                    <li><a class="text-muted" href="#">Locations</a></li>
+                    <li><a class="text-muted" href="#">Privacy</a></li>
+                    <li><a class="text-muted" href="#">Terms</a></li>
+                </ul>
+            </div>
+        </div>
     </footer>
 </div>
-</head>
-<body>
-<h1>Hello, world!</h1>
 
 <!-- Optional JavaScript; choose one of the two! -->
 
