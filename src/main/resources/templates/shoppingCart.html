@@ -66,13 +66,16 @@
     </div>
     <div class="row">
         <div class="col-sm" th:each=" product : ${session?.cart}">
-            <div class="card" style="width: 8rem;">
+            <div class="card" style="width: 11rem;">
                 <img th:src="${product.image}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="${product.name}"></h5>
-<!--                    <p class="card-text" th:text="${product.description}"></p>-->
-                    <p class="card-text" style="color:Tomato;" th:text="${product.price+' Kr'}"></p>
-                    <!--     <a href="shoppingCart" class="btn btn-primary" >Add to Cart</a>-->
+                    <h5 class="card-title" style="font-size: 20px;" th:text="${product.name}"></h5>
+                    <p class="card-text" style="font-size: 14px;" th:text="${product.description}"></p>
+                    <p class="card-text" style="color:Tomato;font-size: 14px;" th:text="${product.price+' Kr'}"></p>
+                    <form action="/removeItem" method="post">
+                        <input type="hidden" th:value="${product.name}" name="title">
+                        <input type="submit" value="Remove">
+                    </form>
                 </div>
             </div>
         </div>

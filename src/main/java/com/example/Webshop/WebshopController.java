@@ -62,4 +62,18 @@ public class WebshopController {
     String orderConfirmation() {
         return "orderConfirmation";
     }
+
+    @PostMapping("/removeItem")
+    String removeItem(HttpSession session, @RequestParam String title) {
+        List<Item> cart = (List) session.getAttribute("cart");
+        if (cart != null) {
+            for (Item item : cart) {
+                if (item.getName().equals(title)) {
+                    cart.remove(item);
+                    break;
+                }
+            }
+        }
+        return "redirect:/shoppingCart";
+    }
 }
