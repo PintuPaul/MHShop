@@ -3,6 +3,8 @@ package com.example.Webshop;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -30,6 +32,19 @@ public class ItemRepository {
 
     public List<Item> getItems() {
         return items;
+    }
+
+    public void addItem(Item item) {
+        items.add(item);
+    }
+
+    public void removeAllItems(){
+        items.clear();
+    }
+
+    public void sortItemsByPrice() {
+        Collections.sort(items, Comparator.comparingInt(Item::getPrice));
+
     }
 
 
