@@ -42,9 +42,12 @@ public class ItemRepository {
         items.clear();
     }
 
-    public void sortItemsByPrice() {
+    public void sortItemsByPriceAscending() {
         Collections.sort(items, Comparator.comparingInt(Item::getPrice));
+    }
 
+    public void sortItemsByPriceDescending() {
+        Collections.sort(items, Comparator.comparingInt(Item::getPrice).reversed());
     }
 
 

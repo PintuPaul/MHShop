@@ -37,7 +37,7 @@ public class Tests {
     }
 
     @Test
-    public void getItemsSortedByPrice() {
+    public void getItemsSortedByPriceAscending() {
 
         ItemRepository itemRepositoryTest = new ItemRepository();
         itemRepositoryTest.removeAllItems();
@@ -45,10 +45,26 @@ public class Tests {
         itemRepositoryTest.addItem(new Item("Shirt", "PLACEHOLDER", 1000, "PLACEHOLDER"));
         itemRepositoryTest.addItem(new Item("Coat", "PLACEHOLDER", 2000, "PLACEHOLDER"));
 
-        itemRepositoryTest.sortItemsByPrice();
+        itemRepositoryTest.sortItemsByPriceAscending();
         List<Item> items = itemRepositoryTest.getItems();
         Assert.assertEquals("Shirt", items.get(0).getName());
         Assert.assertEquals("Coat", items.get(1).getName());
         Assert.assertEquals("Dress", items.get(2).getName());
+    }
+
+    @Test
+    public void getItemsSortedByPriceDescending() {
+
+        ItemRepository itemRepositoryTest = new ItemRepository();
+        itemRepositoryTest.removeAllItems();
+        itemRepositoryTest.addItem(new Item("Dress", "PLACEHOLDER", 3000, "PLACEHOLDER"));
+        itemRepositoryTest.addItem(new Item("Shirt", "PLACEHOLDER", 1000, "PLACEHOLDER"));
+        itemRepositoryTest.addItem(new Item("Coat", "PLACEHOLDER", 2000, "PLACEHOLDER"));
+
+        itemRepositoryTest.sortItemsByPriceDescending();
+        List<Item> items = itemRepositoryTest.getItems();
+        Assert.assertEquals("Dress", items.get(0).getName());
+        Assert.assertEquals("Coat", items.get(1).getName());
+        Assert.assertEquals("Shirt", items.get(2).getName());
     }
 }
