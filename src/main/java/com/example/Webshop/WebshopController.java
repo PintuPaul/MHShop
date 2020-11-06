@@ -26,6 +26,7 @@ public class WebshopController {
     String productList(Model model) {
         List<Item> products = repository.getItems();
         model.addAttribute("product", products.get(0));
+        model.addAttribute("products",products);
         return "productList";
     }
 
