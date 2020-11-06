@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,17 +21,24 @@ public class WebshopController {
     }
 
     @GetMapping("/productList")
-    String productList(Model model) {
-        List<Item> products = repository.getItems();
-        //model.addAttribute("product", products.get(0));
-        model.addAttribute("products", products);
+    String productList(Model model, @RequestParam(value = "sorting", defaultValue="0")Integer sorting) {
+
+        if (sorting == 1 ){
+            List<Item> products = repository.sortItemsByPriceAscending();
+            model.addAttribute("products", products);
+        } else if (sorting == 2) {
+            List<Item> products = repository.sortItemsByPriceDescending();
+            model.addAttribute("products", products);
+        } else {
+            List<Item> products = repository.getItems();
+            model.addAttribute("products", products);
+        }
+
         return "productList";
     }
 
     @GetMapping("/shoppingCart")
-    String shoppingCart(Model model, HttpSession session) {
-/*        List<Item> products =  (List)session.getAttribute("cart");
-        model.addAttribute("product", products);*/
+    String shoppingCart() {
         return "shoppingCart";
     }
 
@@ -79,14 +87,10 @@ public class WebshopController {
     }
 
     @PostMapping("/redeem")
-    String redeem(HttpSession session, @RequestParam String promo){
-        String promoCode = (String)session.getAttribute("promo");
-        if (promoCode == null) {
-            session.setAttribute("promo", 0);
-        }
-        if (promoCode.equals("abcd")) {
-            session.setAttribute("promo", 100);
-            session.setAttribute("sum",(Integer) session.getAttribute("sum") - 100);
+    String redeem(HttpSession session, @RequestParam String promoCode) {
+        if (session.getAttribute("discount") == null && promoCode.equals("abcd")) {
+            session.setAttribute("discount", 100);
+            session.setAttribute("sum", (Integer) session.getAttribute("sum") - 100);
         }
         return "redirect:/checkout";
     }

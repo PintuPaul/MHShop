@@ -37,6 +37,8 @@
         }
       }
 
+
+
     </style>
     <!-- Custom styles for this template -->
     <link href="form-validation.css" rel="stylesheet">
@@ -68,16 +70,18 @@
                     </div>
                     <span class="text-muted" th:text="${product.price} +' SEK'"></span>
                 </li>
-
+                <li th:if="${session.discount != null}" class="list-group-item d-flex justify-content-between">
+                    <span style="color:Tomato;">Discount</span>
+                    <strong style="color:Tomato;" th:text="100+' SEK'"></strong>
+                </li>
                 <li class="list-group-item d-flex justify-content-between">
-                    <span>Total (SEK)</span>
-                    <strong th:text="${session.sum}"></strong>
+                    <span>Total</span>
+                    <strong th:text="${session.sum}+' SEK'"></strong>
                 </li>
             </ul>
-
-            <form class="card p-2">
+            <form class="card p-2" action="/redeem" method="post">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Promo code">
+                    <input type="text" class="form-control" placeholder="Promo code" name="promoCode">
                     <div class="input-group-append">
                         <button type="submit" class="btn btn-secondary">Redeem</button>
                     </div>
