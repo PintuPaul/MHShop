@@ -43,12 +43,11 @@
                     <h5 class="card-title" th:text="${product.name}"></h5>
                     <p class="card-text" th:text="${product.description}"></p>
                     <p class="card-text" th:text="${product.price+' Kr'}"></p>
-                    <!--     <a href="shoppingCart" class="btn btn-primary" >Add to Cart</a>-->
-                    <form action="/productList" th:object="${product}" method="post">
-                        <input type="hidden" th:field="*{name}">
-                        <input type="hidden" th:field="*{description}">
-                        <input type="hidden" th:field="*{price}">
-                        <input type="hidden" th:field="*{image}">
+                    <form action="/productList" method="post">
+                        <input type="hidden" th:value="${product.name}" name="title">
+                        <input type="hidden" th:value="${product.description}"  name="description">
+                        <input type="hidden" th:value="${product.price}" name="price">
+                        <input type="hidden" th:value="${product.image}" name="image">
                         <input type="submit" value="Add to Cart">
                     </form>
                 </div>
