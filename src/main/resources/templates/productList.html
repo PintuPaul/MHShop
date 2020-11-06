@@ -62,15 +62,17 @@
         <h2>List of Products</h2>
         <p class="lead">Choose your favourite products</p>
     </div>
-    <div class="custom-select" style="width:200px;">
+    <div>
         <form action="/productList" method="get">
-            <select id="dropDown" name="dropDown">
+            <select name="sorting">
                 <option value="0" >Sort By</option>
                 <option value="1" >Price Ascending</option>
                 <option value="2" >Price Descending</option>
+                <input type="submit" value="Refresh">
             </select>
         </form>
     </div>
+    <hr class="mb-4">
     <div class="row">
         <div class="col-sm" th:each="product : ${products}">
             <div class="card" style="width: 18rem;">

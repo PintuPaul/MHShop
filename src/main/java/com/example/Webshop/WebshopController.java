@@ -21,12 +21,12 @@ public class WebshopController {
     }
 
     @GetMapping("/productList")
-    String productList(Model model, HttpServletRequest request) {
-        String options = request.getParameter("dropDown");
-        if (options != null && options.equals(1)) {
+    String productList(Model model, @RequestParam(value = "sorting", defaultValue="0")Integer sorting) {
+
+        if (sorting == 1 ){
             List<Item> products = repository.sortItemsByPriceAscending();
             model.addAttribute("products", products);
-        } else if (options != null && options.equals(2)) {
+        } else if (sorting == 2) {
             List<Item> products = repository.sortItemsByPriceDescending();
             model.addAttribute("products", products);
         } else {
