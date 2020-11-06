@@ -70,10 +70,24 @@ public class WebshopController {
             for (Item item : cart) {
                 if (item.getName().equals(title)) {
                     cart.remove(item);
+                    session.setAttribute("sum", (Integer) session.getAttribute("sum") - item.getPrice());
                     break;
                 }
             }
         }
         return "redirect:/shoppingCart";
+    }
+
+    @PostMapping("/redeem")
+    String redeem(HttpSession session, @RequestParam String promo){
+        String promoCode = (String)session.getAttribute("promo");
+        if (promoCode == null) {
+            session.setAttribute("promo", 0);
+        }
+        if (promoCode.equals("abcd")) {
+            session.setAttribute("promo", 100);
+            session.setAttribute("sum",(Integer) session.getAttribute("sum") - 100);
+        }
+        return "redirect:/checkout";
     }
 }
