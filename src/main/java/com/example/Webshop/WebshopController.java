@@ -62,6 +62,11 @@ public class WebshopController {
         return "addCustomer";
     }
 
+    @GetMapping("/signIn")
+    String signIn() {
+        return "signIn";
+    }
+
     @PostMapping("/addCustomer")
     public String saveCustomer(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email, @RequestParam String address, @RequestParam String country, @RequestParam String zipcode){
         Customer customer = new Customer(firstName, lastName, email, address, country, zipcode);
