@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 
     <link rel="icon" type="image/png" href="/MHLoho 16x16.png"/>
@@ -19,10 +19,8 @@
     <title>Sign In</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/checkout/">
-
     <!-- Bootstrap core CSS -->
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
 
     <!-- Custom styles for this template -->
     <link href="signIn.css" rel="stylesheet">
@@ -42,10 +40,6 @@
           font-size: 3.5rem;
         }
       }
-
-
-
-
     </style>
     <!-- Custom styles for this template -->
     <link href="form-validation.css" rel="stylesheet">
@@ -53,21 +47,27 @@
 
 
 <body class="text-center">
-<form class="form-signin">
-    <img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+<form class="form-signin" th:action="@{/login}" method="POST">
+    <!--<img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">-->
+    <a class="d-block mx-auto mb-4" href="landingPage" aria-label="landingPage">
+        <svg width="82" height="72"
+             xmlns="http://www.w3.org/2000/svg">
+            <image href="MHLogo.png" width="82" height="72"/>
+        </svg>
+    </a>
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="username" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
     <div class="checkbox mb-3">
         <label>
             <input type="checkbox" value="remember-me"> Remember me
         </label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign In">
 
-    <a class="btn btn-link btn-lg btn-block" href="addCustomer" type="submit">Sign up</a>
+    <a class="btn btn-link btn-lg btn-block" href="/addCustomer">Sign Up</a>
 
 </form>
 
