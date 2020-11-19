@@ -9,8 +9,12 @@ public class Customer {
     private String address;
     private String country;
     private String zipcode;
+    private String password;
 
-    public Customer(Long id, String firstName, String lastName, String email, String address, String country, String zipcode) {
+    public Customer() {
+    }
+
+    public Customer(Long id, String firstName, String lastName, String email, String address, String country, String zipcode, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -18,15 +22,17 @@ public class Customer {
         this.address = address;
         this.country = country;
         this.zipcode = zipcode;
+        this.password = password;
     }
 
-    public Customer(String firstName, String lastName, String email, String address, String country, String zipcode) {
+    public Customer(String firstName, String lastName, String email, String address, String country, String zipcode, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.address = address;
         this.country = country;
         this.zipcode = zipcode;
+        this.password = password;
     }
 
     public Long getId() {

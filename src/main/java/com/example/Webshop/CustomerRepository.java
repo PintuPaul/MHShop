@@ -5,10 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import javax.xml.crypto.Data;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.List;
 
 @Repository
@@ -31,4 +28,32 @@ public class CustomerRepository {
             e.printStackTrace();
         }
     }
+
+    public Customer findByUserName(String email){
+        Customer customer = null;
+
+        try (Connection connection = dataSource.getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery
+                     ("SELECT * FROM CUSTOMER")) {
+            if (resultSet.next()) {
+                customer = rsCustomer(resultSet);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return customer;
     }
+
+    private Customer rsCustomer(ResultSet rs) throws SQLException {
+        return new Customer(rs.getLong("id"),
+                rs.getString("firstname"),
+                rs.getString("lastname"),
+                rs.getString("email"),
+                rs.getString("address"),
+                rs.getString("country"),
+                rs.getString("zipcode"),
+                rs.getString("password"));
+    }
+}

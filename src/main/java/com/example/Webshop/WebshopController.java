@@ -62,14 +62,17 @@ public class WebshopController {
         return "addCustomer";
     }
 
-    @GetMapping("/signIn")
+    @GetMapping("/login")
     String signIn() {
-        return "signIn";
+        return "login";
     }
 
     @PostMapping("/addCustomer")
-    public String saveCustomer(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email, @RequestParam String address, @RequestParam String country, @RequestParam String zipcode){
-        Customer customer = new Customer(firstName, lastName, email, address, country, zipcode);
+    public String saveCustomer(@RequestParam String firstName, @RequestParam String lastName,
+                               @RequestParam String email, @RequestParam String address,
+                               @RequestParam String password,
+                               @RequestParam String country, @RequestParam String zipcode){
+        Customer customer = new Customer(firstName, lastName, email, address, country, zipcode,password);
         customerRepository.saveCustomer(customer);
         return "redirect:/productList";
     }

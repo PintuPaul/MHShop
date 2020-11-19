@@ -15,4 +15,4 @@ INSERT INTO ITEM (NAME,DESCRIPTION,PRICE,IMAGE) VALUES ('Deluxe Shirt', 'Get thi
 INSERT INTO ITEM (NAME,DESCRIPTION,PRICE,IMAGE) VALUES ('Flip-Flops', 'Make annoying sound wherever you go!', 40, 'https://lp2.hm.com/hmgoepprod?set=source[/ce/04/ce0474ef9c8d4c6732f304063c17410efe0cec04.jpg],origin[dam],category[men_shoes_sandals_espandrillos],type[DESCRIPTIVESTILLLIFE],res[z],hmver[1]&call=url[file:/product/fullscreen]');
 
 
-INSERT INTO CUSTOMER (FIRSTNAME, LASTNAME, EMAIL, ADDRESS, COUNTRY, ZIPCODE) VALUES ('Pippi', 'Långstrump', 'pippi@astridlindgren.se', 'Villa villerkulla', 'Sweden', '12345');
+INSERT INTO CUSTOMER (FIRSTNAME, LASTNAME, EMAIL, ADDRESS, COUNTRY, ZIPCODE, PASSWORD) VALUES ('Pippi', 'Långstrump', 'pippi@astridlindgren.se', 'Villa villerkulla', 'Sweden', '12345','password123');
