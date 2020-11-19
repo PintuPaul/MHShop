@@ -13,3 +13,6 @@ INSERT INTO ITEM (NAME,DESCRIPTION,PRICE,IMAGE) VALUES ('Deluxe Hoodie', 'Keep y
 INSERT INTO ITEM (NAME,DESCRIPTION,PRICE,IMAGE) VALUES ('Regular Shirt', 'Get this for your first interview', 140, 'https://lp2.hm.com/hmgoepprod?set=source[/a8/3b/a83be7491ca71977cbb4b22cf2604b6ebe49406b.jpg],origin[dam],category[ladies_shirtsblouses_shirts],type[LOOKBOOK],res[z],hmver[1]&call=url[file:/product/main]');
 INSERT INTO ITEM (NAME,DESCRIPTION,PRICE,IMAGE) VALUES ('Deluxe Shirt', 'Get this after your first salary', 240, 'https://lp2.hm.com/hmgoepprod?set=source[/fc/6e/fc6eb597ca43fc54f902104b8071097f6c14a94d.jpg],origin[dam],category[ladies_shirtsblouses_shirts],type[LOOKBOOK],res[z],hmver[1]&call=url[file:/product/main]');
 INSERT INTO ITEM (NAME,DESCRIPTION,PRICE,IMAGE) VALUES ('Flip-Flops', 'Make annoying sound wherever you go!', 40, 'https://lp2.hm.com/hmgoepprod?set=source[/ce/04/ce0474ef9c8d4c6732f304063c17410efe0cec04.jpg],origin[dam],category[men_shoes_sandals_espandrillos],type[DESCRIPTIVESTILLLIFE],res[z],hmver[1]&call=url[file:/product/fullscreen]');
+
+
+INSERT INTO CUSTOMER (FIRSTNAME, LASTNAME, EMAIL, ADDRESS, COUNTRY, ZIPCODE) VALUES ('Maria', 'Mickols', 'maria.mickols@hm.com', 'Odengatan 98', 'SWEDEN', '11322');

@@ -17,6 +17,9 @@ public class WebshopController {
     private ItemsRepository repository;
     //private ItemRepository repository;
 
+    @Autowired
+    private CustomerRepository customerRepository;
+
     @GetMapping("/")
     String welcome() {
         return "landingPage";
@@ -52,6 +55,18 @@ public class WebshopController {
     @GetMapping("/checkout")
     String checkout() {
         return "checkout";
+    }
+
+    @GetMapping("/addCustomer")
+    String addCustomer() {
+        return "addCustomer";
+    }
+
+    @PostMapping("/addCustomer")
+    public String saveCustomer(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email, @RequestParam String address, @RequestParam String country, @RequestParam String zipcode){
+        Customer customer = new Customer(firstName, lastName, email, address, country, zipcode);
+        customerRepository.saveCustomer(customer);
+        return "redirect:/productList";
     }
 
     @PostMapping("/productList")
