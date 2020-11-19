@@ -12,8 +12,10 @@ import java.util.List;
 
 @Controller
 public class WebshopController {
+
     @Autowired
-    private ItemRepository repository;
+    private ItemsRepository repository;
+    //private ItemRepository repository;
 
     @GetMapping("/")
     String welcome() {
@@ -21,9 +23,9 @@ public class WebshopController {
     }
 
     @GetMapping("/productList")
-    String productList(Model model, @RequestParam(value = "sorting", defaultValue="0")Integer sorting) {
+    String productList(Model model, @RequestParam(value = "sorting", defaultValue = "0") Integer sorting) {
 
-        if (sorting == 1 ){
+        if (sorting == 1) {
             List<Item> products = repository.sortItemsByPriceAscending();
             model.addAttribute("products", products);
         } else if (sorting == 2) {
@@ -53,7 +55,7 @@ public class WebshopController {
     }
 
     @PostMapping("/productList")
-    public String addToCart(@RequestParam String title, @RequestParam String description,
+    public String addToCart(@RequestParam long id, @RequestParam String title, @RequestParam String description,
                             @RequestParam String image, @RequestParam int price, HttpSession session) {
         List<Item> cart = (List) session.getAttribute("cart");
         if (cart == null) {
@@ -62,7 +64,7 @@ public class WebshopController {
             session.setAttribute("cart", cart);
         }
         session.setAttribute("sum", (Integer) session.getAttribute("sum") + price);
-        cart.add(new Item(title, description, price, image));
+        cart.add(new Item(id, title, description, price, image));
         return "redirect:/productList";
     }
 
