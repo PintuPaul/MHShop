@@ -35,7 +35,7 @@ public class CustomerRepository {
         try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery
-                     ("SELECT * FROM CUSTOMER")) {
+                     ("SELECT * FROM CUSTOMER WHERE EMAIL = '"+ email +"'")) {
             if (resultSet.next()) {
                 customer = rsCustomer(resultSet);
             }

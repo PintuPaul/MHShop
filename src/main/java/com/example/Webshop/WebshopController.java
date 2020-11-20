@@ -1,6 +1,8 @@
 package com.example.Webshop;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -65,6 +67,16 @@ public class WebshopController {
     @GetMapping("/login")
     String signIn() {
         return "login";
+    }
+
+    @GetMapping("/myAccount")
+    String accountInfo(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        System.out.println("username = " + username);
+        Customer customer = customerRepository.findByUserName(username);
+        model.addAttribute("customer",customer);
+        return "myAccount";
     }
 
     @PostMapping("/addCustomer")

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="icon" type="image/png" href="/MHLoho 16x16.png"/>
     <title>M&H Home</title>
@@ -69,7 +69,14 @@
                 <a class="nav-link" href="shoppingCart">Shopping Cart</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="login">Sign in</a>
+                <div sec:authorize = "!isAuthenticated()">
+                    <a class="nav-link" href="login">Sign In</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div sec:authorize = "isAuthenticated()">
+                    <a class="nav-link" href="myAccount">My Account</a>
+                </div>
             </li>
 
         </ul>

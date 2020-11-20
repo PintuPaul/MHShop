@@ -16,8 +16,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http
                 .authorizeRequests()
-                .antMatchers("/","/signIn.css","/landingPage","/productList","/addCustomer","/shoppingCart","/checkout","/h2","/h2/**").permitAll()
-                //.antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/","/signIn.css","/MHLogo.png","/landingPage","/productList","/addCustomer","/shoppingCart","/checkout","/h2","/h2/**").permitAll()
+                .antMatchers("/myAccount").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public UserDetailsService userDetailsService() {
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
         manager.createUser(User.withDefaultPasswordEncoder()
-                .username("test@hm.com").password("password123").roles("USER").build());
+                .username("test@hm.com").password("password123").roles("USER","ADMIN").build());
         return manager;
     }
 
