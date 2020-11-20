@@ -71,13 +71,7 @@ public class WebshopController {
     String signIn() {
         return "login";
     }
-
-    @GetMapping("/init")
-    String userReg(@RequestParam String username) {
-        User user = userRepository.findByUsername(username);
-        return "login";
-    }
-
+    
     @GetMapping("/myAccount")
     String accountInfo(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

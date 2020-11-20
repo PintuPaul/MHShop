@@ -1,9 +1,6 @@
 package com.example.Webshop;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -11,8 +8,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(nullable = false, unique = true)
     private String username;
+
     private String password;
+
+    public User() {
+    }
 
     public User(Long id, String username, String password) {
         this.id = id;
