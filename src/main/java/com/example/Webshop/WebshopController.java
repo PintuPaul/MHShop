@@ -26,7 +26,8 @@ public class WebshopController {
     private UserRepository userRepository;
 
     @GetMapping("/")
-    String welcome() {
+    String welcome(HttpSession session) {
+        session.setAttribute("cartItems",0);
         return "landingPage";
     }
 
@@ -53,7 +54,11 @@ public class WebshopController {
     }
 
     @GetMapping("/landingPage")
-    String welcomePage() {
+    String welcomePage(HttpSession session) {
+        Integer items = (Integer) session.getAttribute("cartItems") ;
+        if(items == null) {
+            session.setAttribute("cartItems",0);
+        }
         return "landingPage";
     }
 
@@ -96,6 +101,7 @@ public class WebshopController {
     public String addToCart(@RequestParam long id, @RequestParam String title, @RequestParam String description,
                             @RequestParam String image, @RequestParam int price, HttpSession session) {
         List<Item> cart = (List) session.getAttribute("cart");
+
         if (cart == null) {
             session.setAttribute("sum", 0);
             cart = new ArrayList<>();
@@ -103,6 +109,8 @@ public class WebshopController {
         }
         session.setAttribute("sum", (Integer) session.getAttribute("sum") + price);
         cart.add(new Item(id, title, description, price, image));
+        session.setAttribute("cartItems",cart.size());
+
         return "redirect:/productList";
     }
 
@@ -119,6 +127,7 @@ public class WebshopController {
                 if (item.getName().equals(title)) {
                     cart.remove(item);
                     session.setAttribute("sum", (Integer) session.getAttribute("sum") - item.getPrice());
+                    session.setAttribute("cartItems",(Integer)session.getAttribute("cartItems") - 1);
                     break;
                 }
             }

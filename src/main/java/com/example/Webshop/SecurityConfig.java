@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/","/signIn.css","/MHLogo.png","/landingPage",
                         "/productList","/background.jpg","/addCustomer","/shoppingCart",
-                        "/checkout","/h2","/h2/**").permitAll()
+                        "/checkout","/h2","/h2/**","/orderConfirmation","/removeItem").permitAll()
                 .antMatchers("/myAccount").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
