@@ -16,7 +16,9 @@ public class CustomerRepository {
 
     public void saveCustomer(Customer customer) {
         try (Connection connection = dataSource.getConnection();
-             PreparedStatement ps = connection.prepareStatement("INSERT INTO CUSTOMER (FIRSTNAME, LASTNAME, EMAIL, ADDRESS, COUNTRY,ZIPCODE, PASSWORD) VALUES (?,?,?,?,?,?,?)")) {
+             PreparedStatement ps = connection.prepareStatement(
+                     "INSERT INTO CUSTOMER (FIRSTNAME, LASTNAME, EMAIL, ADDRESS, " +
+                             "COUNTRY,ZIPCODE, PASSWORD) VALUES (?,?,?,?,?,?,?)")) {
         ps.setString(1, customer.getFirstName());
         ps.setString(2, customer.getLastName());
         ps.setString(3, customer.getEmail());

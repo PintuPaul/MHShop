@@ -31,7 +31,6 @@ public class ItemsRepository {
     }
 
     public List<Item> getItems() {
-
         try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery
