@@ -1,5 +1,6 @@
 package com.example.Webshop;
 
+import com.example.Webshop.old.ItemRepository;
 import org.junit.Assert;
 import org.junit.Test;
 

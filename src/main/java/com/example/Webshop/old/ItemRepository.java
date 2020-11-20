@@ -1,5 +1,6 @@
-package com.example.Webshop;
+package com.example.Webshop.old;
 
+import com.example.Webshop.Item;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
