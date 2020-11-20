@@ -22,6 +22,9 @@ public class WebshopController {
     @Autowired
     private CustomerRepository customerRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @GetMapping("/")
     String welcome() {
         return "landingPage";
@@ -66,6 +69,12 @@ public class WebshopController {
 
     @GetMapping("/login")
     String signIn() {
+        return "login";
+    }
+
+    @GetMapping("/init")
+    String userReg(@RequestParam String username) {
+        User user = userRepository.findByUsername(username);
         return "login";
     }
 
