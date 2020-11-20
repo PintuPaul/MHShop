@@ -16,3 +16,4 @@ INSERT INTO ITEM (NAME,DESCRIPTION,PRICE,IMAGE) VALUES ('Flip-Flops', 'Make anno
 
 
 INSERT INTO CUSTOMER (FIRSTNAME, LASTNAME, EMAIL, ADDRESS, COUNTRY, ZIPCODE, PASSWORD) VALUES ('Pippi', 'Långstrump', 'pippi@astridlindgren.se', 'Villa villerkulla', 'Sweden', '12345','password123');
+INSERT INTO CUSTOMER (FIRSTNAME, LASTNAME, EMAIL, ADDRESS, COUNTRY, ZIPCODE, PASSWORD) VALUES ('Test', 'User', 'test@hm.com', 'Villa villerkulla', 'Sweden', '12345','password123');

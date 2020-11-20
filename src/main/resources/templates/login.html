@@ -47,6 +47,7 @@
 
 
 <body class="text-center">
+
 <form class="form-signin" th:action="@{/login}" method="POST">
     <!--<img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">-->
     <a class="d-block mx-auto mb-4" href="landingPage" aria-label="landingPage">
@@ -61,12 +62,17 @@
     <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="username" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
     <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
-    <div class="checkbox mb-3">
+<!--    <div class="checkbox mb-3">
         <label>
             <input type="checkbox" value="remember-me"> Remember me
         </label>
+    </div>-->
+
+    <div th:if="${param.error}" style="color:red">
+        Invalid username and password.
     </div>
-    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign In">
+
+        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign In">
 
     <a class="btn btn-link btn-lg btn-block" href="/addCustomer">Sign Up</a>
 
