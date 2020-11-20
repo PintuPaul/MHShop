@@ -86,7 +86,7 @@ public class WebshopController {
                                @RequestParam String country, @RequestParam String zipcode){
         Customer customer = new Customer(firstName, lastName, email, address, country, zipcode,password);
         customerRepository.saveCustomer(customer);
-        return "redirect:/productList";
+        return "redirect:/";
     }
 
     @PostMapping("/productList")

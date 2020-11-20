@@ -16,13 +16,14 @@ public class CustomerRepository {
 
     public void saveCustomer(Customer customer) {
         try (Connection connection = dataSource.getConnection();
-             PreparedStatement ps = connection.prepareStatement("INSERT INTO CUSTOMER (FIRSTNAME, LASTNAME, EMAIL, ADDRESS, COUNTRY,ZIPCODE) VALUES (?,?,?,?,?,?)")) {
+             PreparedStatement ps = connection.prepareStatement("INSERT INTO CUSTOMER (FIRSTNAME, LASTNAME, EMAIL, ADDRESS, COUNTRY,ZIPCODE, PASSWORD) VALUES (?,?,?,?,?,?,?)")) {
         ps.setString(1, customer.getFirstName());
         ps.setString(2, customer.getLastName());
         ps.setString(3, customer.getEmail());
         ps.setString(4, customer.getAddress());
         ps.setString(5, customer.getCountry());
         ps.setString(6, customer.getZipcode());
+        ps.setString(7, customer.getPassword());
         ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
